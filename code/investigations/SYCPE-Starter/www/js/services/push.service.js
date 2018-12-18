@@ -46,15 +46,15 @@ const SERVER_ROOT = "https://rescuestationpush.herokuapp.com:443"; // heroku ser
       });
       service.push.on('notification', function(data){
         console.log("push.notification event, ", data);
-        if(data.hasOwnProperty("additionalData")) {
-          if(data.additionalData.hasOwnProperty("payload")) {
+//        if(data.hasOwnProperty("additionalData")) {
+//          if(data.additionalData.hasOwnProperty("payload")) {
             service.callbackHandler( data.additionalData );
-          } else {
-            console.log("inbound message missing an additionalData.payload property");
-          }
-        } else {
-          console.log("inbound messaeg missing an additionalData property");
-        }
+//          } else {
+//            console.log("inbound message missing an additionalData.payload property");
+//          }
+//        } else {
+//          console.log("inbound messaeg missing an additionalData property");
+//        }
       });
 
       service.push.on('error', function (error) {
