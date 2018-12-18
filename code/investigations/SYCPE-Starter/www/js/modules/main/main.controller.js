@@ -67,7 +67,10 @@
             return;
           } else {
             if(qrResult.format==="QR_CODE") {
-              pushSrvc.subscribe( qrResult.text );
+                vm.uuid = qrResult.text;
+                pushSrvc.subscribe( qrResult.text );
+                vm.subscriptionFeedback = "Subscribed!";
+                $scope.$apply();
             }
           }
         },

@@ -47,11 +47,13 @@ var app = {
 
   // make a new QR code
   handleRegenerateEvent: function handleRegenerateEvent() {
+    var uuid = app.makeUUID();
     cordova.plugins.qrcodejs.encode( cordova.plugins.qrcodejs.Encode.TEXT_TYPE,
-                                     app.makeUUID(),
+                                     uuid,
                                      function encodeSuccess(success){
                                        console.log("success",success);
                                        document.getElementById('qrcode').src=success;
+                                       document.getElementById('uuid').innerHTML = uuid;
                                      },
                                      function encodeFailure(error){
                                        console.log("error", error);

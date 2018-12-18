@@ -47,11 +47,13 @@ var app = {
 
   // make a new QR code
   handleRegenerateEvent: function handleRegenerateEvent() {
+    var uuid = app.makeUUID();
     cordova.plugins.qrcodejs.encode( cordova.plugins.qrcodejs.Encode.TEXT_TYPE,
-                                     app.makeUUID(),
+                                     uuid,
                                      function encodeSuccess(success){
                                        console.log("success",success);
                                        document.getElementById('qrcode').src=success;
+                                       document.getElementById('uuid').innerHTML = uuid;
                                      },
                                      function encodeFailure(error){
                                        console.log("error", error);
@@ -60,6 +62,8 @@ var app = {
   },
 
   makeUUID: function makeUUID() {
+    // thanks to https://gist.github.com/jed/982883
+    // there is also a proper Cordova/Angular module for this which, whilst more locquacious, is probabl a better idea long-term.
     return(""+1e7+-1e3+-4e3+-8e3+-1e11).replace(/1|0/g,function(){return(0|Math.random()*16).toString(16)});
   }
 };
