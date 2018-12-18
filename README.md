@@ -39,9 +39,7 @@ In the VSCide *vscode-http-client*, set the following properties:
 Parameter | Value
 ----------|--------
 URL| `https://fcm.googleapis.com/fcm/send`
-Body | `{"message":"hello",
-"title":"Hello There",
-"to":"/topics/`*topic_id*`"}`
+Body | `{"message":"hello",\n"title":"Hello There",\n"to":"/topics/`*topic_id*`"}`
 
 Where *topic_id* is the UUID generated earlier, in the form of something like *2a4abbfc-13be-4253-83b5-a899cce8b89a*. Be aware this is case sensitive!
 
