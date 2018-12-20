@@ -1,51 +1,35 @@
 (function () {
+
   'use strict';
 
-  angular
-    .module('main' )
-    .controller('mainCtrl', mainCtrl);
+  var app = angular.module('main' );
+  app.controller('mainCtrl', mainCtrl);
+  mainCtrl.$inject = [ '$scope', 'pushSrvc' ];
 
-  mainCtrl.$inject = [
-    '$ionicPlatform',
-    '$scope',
-    '$state',
-    '$sce',
-    '$http',
-    'pushSrvc',
-    'uuid'
-  ];
-2
-  function mainCtrl(
-    $ionicPlatform,
-    $scope,
-    $state,
-    $sce,
-    $http,
-    pushSrvc,
-    uuid
-  ) {
+  function mainCtrl( $scope, pushSrvc ) {
 
-    var vm=angular.extend(this, {
+    var vm = angular.extend(this, { });
 
-    });
-
-	  vm.MESSAGE_TIMEOUT_SECONDS = 10;
+    vm.MESSAGE_TIMEOUT_SECONDS = 10;
 
     vm.pushConnected = false;
 
-    vm.inbound = { data: { },
-                   rendered: "No messages yet." };
+    vm.inbound = {
+      data: { },
+      rendered: "No messages yet."
+    };
 
     vm.subscriptionFeedback = "";
-
 
     vm.initialise = function initialise() {
 
       vm.inbound.rendered = "No registrationId yet...";
 
       pushSrvc.initialisePush( function deviceNowConnected( data ){
-        console.log("controller initialised push, got payload ",data );
+        console.log("Controller initialised push, got payload ",data );
+
         vm.inbound.rendered = "Got connected payload";
+
         if (data.hasOwnProperty('registrationId')===true) {
 
           vm.registrationId = data.registrationId;
@@ -53,17 +37,20 @@
 
           pushSrvc.setCallback( vm.handleInbound );
           pushSrvc.setTimeout( vm.MESSAGE_TIMEOUT_SECONDS * 1000 );
+
         }
+
       });
+
     };
 
     vm.startCodeScan = function startCodeScan() {
-      console.log("starting a QR code scan");
+      console.log("Starting a QR code scan");
       cordova.plugins.barcodeScanner.scan(
         function(qrResult) { // .text .format .cancelled
-          console.log("scanned",qrResult.text);
+          console.log("Scanned",qrResult.text);
           if(qrResult.cancelled===true) {
-            console.log("aborted scan!");
+            console.log("Aborted scan!");
             return;
           } else {
             if(qrResult.format==="QR_CODE") {
@@ -75,7 +62,7 @@
           }
         },
         function(error) {
-          console.log("error scanning",error);
+          console.error("Error scanning",error);
         },
         {
           showTorchButton: true,
@@ -86,9 +73,9 @@
     };
 
     vm.handleInbound = function handleInbound( data ) {
-      console.log("got inbound message", data);
-      alert(data);
-
+      console.log("Got inbound message", data);
+      console.log("payload", JSON.parse(data.payload.payload));
+      alert(JSON.stringify(data));
     };
 
     vm.initialise();
