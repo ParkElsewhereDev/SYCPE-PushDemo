@@ -48,7 +48,7 @@ Where *topic_id* is the UUID generated earlier, in the form of something like *2
 Name | Value
 -----|--------
 Content-Type | `application/json`
-Authorisation | `key=`*FCM_key*
+Authorization | `key=`*FCM_key*
 
 Where *FCM_key* is the Firebase Cloud Messaging Server Key taken from the Firebase console earlier.
 
