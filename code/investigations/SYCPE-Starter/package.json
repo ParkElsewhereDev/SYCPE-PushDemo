@@ -26,7 +26,8 @@
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
       "phonegap-plugin-push": {
-        "FCM_VERSION": "11.0.1"
+        "FCM_VERSION": "11.0.1",
+        "ANDROID_SUPPORT_V13_VERSION": "27.+"
       }
     },
     "platforms": [
