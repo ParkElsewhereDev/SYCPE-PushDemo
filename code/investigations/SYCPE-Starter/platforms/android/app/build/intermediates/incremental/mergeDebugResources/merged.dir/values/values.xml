@@ -213,14 +213,14 @@
     <string name="contents_phone">Phone number</string>
     <string name="contents_sms">SMS address</string>
     <string name="contents_text">Plain text</string>
-    <string name="default_web_client_id" translatable="false">999282810176-v1kqbb9f17oc1tjasdrl8tt0b1vcn012.apps.googleusercontent.com</string>
+    <string name="default_web_client_id" translatable="false">930939697602-pseef64bfn6eidr8c95uqt1382h31sa6.apps.googleusercontent.com</string>
     <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
-    <string name="firebase_database_url" translatable="false">https://park-f6b43.firebaseio.com</string>
-    <string name="gcm_defaultSenderId" translatable="false">999282810176</string>
-    <string name="google_api_key" translatable="false">AIzaSyBuoHbJu3xKTARErID0ot8scT6pU-IlVa4</string>
-    <string name="google_app_id" translatable="false">1:999282810176:android:c64fa01ca2ffb907</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBuoHbJu3xKTARErID0ot8scT6pU-IlVa4</string>
-    <string name="google_storage_bucket" translatable="false">park-f6b43.appspot.com</string>
+    <string name="firebase_database_url" translatable="false">https://rescuestationnativepushtest.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">930939697602</string>
+    <string name="google_api_key" translatable="false">AIzaSyBcmQoQ7QdGBkxcNYaYVyuoaro0ljmN3Uk</string>
+    <string name="google_app_id" translatable="false">1:930939697602:android:c64fa01ca2ffb907</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBcmQoQ7QdGBkxcNYaYVyuoaro0ljmN3Uk</string>
+    <string name="google_storage_bucket" translatable="false">rescuestationnativepushtest.appspot.com</string>
     <string name="history_clear_one_history_text">Clear</string>
     <string name="history_clear_text">Clear history</string>
     <string name="history_email_title">Barcode Scanner history</string>
@@ -302,7 +302,7 @@
     <string name="preferences_supplemental_summary">Try to retrieve more information about the barcode contents</string>
     <string name="preferences_supplemental_title">Retrieve more info</string>
     <string name="preferences_vibrate_title">Vibrate</string>
-    <string name="project_id" translatable="false">park-f6b43</string>
+    <string name="project_id" translatable="false">rescuestationnativepushtest</string>
     <string name="result_address_book">Found contact info</string>
     <string name="result_calendar">Found calendar event</string>
     <string name="result_email_address">Found email address</string>
