@@ -44,6 +44,30 @@
 
     };
 
+    vm.incidents=function()
+    {
+      var urlParams = new URLSearchParams(window.location.search);
+      var uuid=urlParams.get('uuid'); //getus uuid from url
+      
+      var jsonpayload={
+        "date":Math.floor(new date()/1000), "sticker":uuid,
+      };
+      //Use $http service to send get request to API and execute different functions depending on whether it is successful or not
+      $http.post(vm.endpoint + '/incidents/', jsonpayload).then(
+          function success(response) 
+          {
+              vm.responses = response.data;
+              console.info(response);
+          },
+          function failure(err) 
+          {
+              console.error(err);
+          }
+      )
+        
+    } ;
+
+
     vm.startCodeScan = function startCodeScan() {
       console.log("Starting a QR code scan");
       cordova.plugins.barcodeScanner.scan(
@@ -55,6 +79,7 @@
           } else {
             if(qrResult.format==="URL") {
                 vm.uuid = qrResult.text;
+                vm.incidents();
                 pushSrvc.subscribe( qrResult.text );
                 vm.subscriptionFeedback = "Subscribed!";
                 $scope.$apply();
