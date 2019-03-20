@@ -53,7 +53,7 @@
             console.log("Aborted scan!");
             return;
           } else {
-            if(qrResult.format==="QR_CODE") {
+            if(qrResult.format==="URL") {
                 vm.uuid = qrResult.text;
                 pushSrvc.subscribe( qrResult.text );
                 vm.subscriptionFeedback = "Subscribed!";
